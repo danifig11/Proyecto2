@@ -10,11 +10,14 @@
  public class Carrera {
     private String nombre;
     private String area;
+    private int duracion;
+    private String descripcion;
 
-
-    public Carrera(String nombre, String area) {
+    public Carrera(String nombre, String area, int duracion, String descripcion) {
         this.nombre = nombre;
         this.area = area;
+        this.duracion = duracion;
+        this.descripcion = descripcion;
     }
 
     public String getNombre() {
@@ -31,5 +34,21 @@
 
     public void setArea(String area) {
         this.area = area;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }
