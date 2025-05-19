@@ -1,10 +1,9 @@
 /*
  * UNIVERSIDAD DEL VALLE DE GUATEMALA
  * Departamento de Ciencia de la Computación
- * Autor: Daniel Figueroa, Saul Castillo, Oliver Cifuentes
+ * Autor: Daniel Figueroa
  * Fecha: Mayo 2025
  * 
- * Clase Carrera: Representa una carrera universitaria con sus características principales.
  */
 
  public class Carrera {
