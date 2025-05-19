@@ -4,6 +4,7 @@
  * Autor: Daniel Figueroa
  * Fecha: Mayo 2025
  * 
+ * Clase Usuario: Representa a un estudiante con datos personales y preferencias.
  */
 
  public class Usuario {
@@ -18,6 +19,7 @@
         this.intereses = intereses;
         this.materiasFavoritas = materiasFavoritas;
     }
+
     public String getNombre() {
         return nombre;
     }
