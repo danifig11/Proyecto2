@@ -1,8 +1,12 @@
 public class Recomendador {
+    private BaseDeDatos bd;
 
-    // Método borrador que más adelante conectará con la base de datos en Neo4j
+    public Recomendador(BaseDeDatos bd) {
+        this.bd = bd;
+    }
+
     public void recomendarCarreras(Usuario usuario) {
         System.out.println("Recomendando carreras para: " + usuario.getNombre());
-        // Aquí se hará la lógica basada en grafos
+        bd.buscarCarrerasRelacionadas(usuario.getIntereses());
     }
 }
