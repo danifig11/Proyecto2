@@ -1,32 +1,34 @@
 /*
  * UNIVERSIDAD DEL VALLE DE GUATEMALA
  * Departamento de Ciencia de la Computación
- * Autor: Daniel Figueroa
+ * Autor: Daniel Figueroa, Saul Castillo
  * Fecha: Mayo 2025
  * 
+ * Clase BaseDeDatos: Maneja el acceso a la base de datos Neo4j.
  */
 
- public class BaseDeDatos {
+package com.example;
 
-    public BaseDeDatos() {
-        System.out.println("Simulación de conexión con base de datos Neo4j...");
+public class BaseDeDatos {
+    private Neo4jConnection conexion;
+
+    public BaseDeDatos(Neo4jConnection conexion) {
+        this.conexion = conexion;
     }
 
-    // Método simulado para meter un usuario
+    public Neo4jConnection getConexion() {
+        return conexion;
+    }
+
     public void insertarUsuario(Usuario usuario) {
         System.out.println("Insertando usuario: " + usuario.getNombre());
-        // Aquí iría la lógica de Cypher en la fase 2
     }
 
-    // Método simulado para meter una carrera
     public void insertarCarrera(Carrera carrera) {
         System.out.println("Insertando carrera: " + carrera.getNombre());
-        // Aquí iría lógica real de Cypher
     }
 
-    // Simulación de consulta
     public void buscarCarrerasRelacionadas(String interes) {
         System.out.println("Buscando carreras relacionadas con: " + interes);
-        // Luego se implementa con MATCH en Cypher
     }
 }
