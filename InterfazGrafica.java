@@ -1,17 +1,20 @@
+package com.example;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class InterfazGrafica extends JFrame {
-    private BaseDeDatos bd = new BaseDeDatos();
+    private BaseDeDatos bd;
 
-    public InterfazGrafica() {
+    public InterfazGrafica(BaseDeDatos bd) {
+        this.bd = bd;
+
         setTitle("My SoulMate - Recomendador de Carreras");
         setSize(550, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        // Colores
         Color fondo = new Color(25, 25, 25);
         Color texto = new Color(230, 230, 230);
 
@@ -32,15 +35,13 @@ public class InterfazGrafica extends JFrame {
         JButton agregarUsuario = new JButton("Agregar Usuario");
         JButton recomendar = new JButton("Recomendar Carreras");
 
-        // Estilo botones
         JButton[] botones = {agregarUsuario, recomendar};
         for (JButton b : botones) {
-            b.setBackground(Color.WHITE);       
-            b.setForeground(Color.BLACK);        
+            b.setBackground(Color.WHITE);
+            b.setForeground(Color.BLACK);
             b.setFocusPainted(false);
         }
 
-        // Componentes de texto
         JLabel[] etiquetas = {
             new JLabel("Nombre:"),
             new JLabel("ID:"),
@@ -60,7 +61,6 @@ public class InterfazGrafica extends JFrame {
             f.setBorder(BorderFactory.createLineBorder(Color.GRAY));
         }
 
-        // Colocación
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 2;
         panel.add(titulo, gbc);
