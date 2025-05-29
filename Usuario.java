@@ -1,7 +1,8 @@
+package com.example;
 /*
  * UNIVERSIDAD DEL VALLE DE GUATEMALA
  * Departamento de Ciencia de la Computación
- * Autor: Daniel Figueroa
+ * Autor: Daniel Figueroa, Oliver Cifuentes y Saul Castillo
  * Fecha: Mayo 2025
  * 
  * Clase Usuario: Representa a un estudiante con datos personales y preferencias.

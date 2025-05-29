@@ -1,12 +1,3 @@
-/*
- * UNIVERSIDAD DEL VALLE DE GUATEMALA
- * Departamento de Ciencia de la Computación
- * Autor: Daniel Figueroa, Saul Castillo
- * Fecha: Mayo 2025
- * 
- * Clase BaseDeDatos: Maneja el acceso a la base de datos Neo4j.
- */
-
 package com.example;
 
 public class BaseDeDatos {
