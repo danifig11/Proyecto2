@@ -1,3 +1,22 @@
+package com.example;
+
+import org.neo4j.driver.Session;
+import org.neo4j.driver.Result;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
+
+/*
+ * UNIVERSIDAD DEL VALLE DE GUATEMALA
+ * Departamento de Ciencia de la Computación
+ * Autor: Daniel Eduardo Figueroa Reyes 24073
+ * Fecha: Mayo 2025
+ * 
+ * Clase Recomendador: Se encarga de buscar recomendaciones de carreras
+ * basadas en intereses y materias favoritas de un usuario, consultando
+ * datos almacenados en Neo4j.
+ */
+
 public class Recomendador {
     private BaseDeDatos bd;
 
@@ -6,7 +25,30 @@ public class Recomendador {
     }
 
     public void recomendarCarreras(Usuario usuario) {
-        System.out.println("Recomendando carreras para: " + usuario.getNombre());
-        bd.buscarCarrerasRelacionadas(usuario.getIntereses());
+        try (Session session = bd.getConexion().getSession()) {
+            String query = "MATCH (u:Usuario)-[:LE_GUSTA]->(c:Carrera) " +
+                           "WHERE u.intereses CONTAINS $interes AND u.materiasFavoritas CONTAINS $materia " +
+                           "RETURN DISTINCT c.nombre AS recomendacion";
+
+            Map<String, Object> params = new HashMap<>();
+            params.put("interes", usuario.getIntereses());
+            params.put("materia", usuario.getMateriasFavoritas());
+
+            Result result = session.run(query, params);
+
+            StringBuilder recomendaciones = new StringBuilder();
+            while (result.hasNext()) {
+                String carrera = result.next().get("recomendacion").asString();
+                recomendaciones.append("- ").append(carrera).append("\n");
+            }
+
+            if (recomendaciones.length() == 0) {
+                JOptionPane.showMessageDialog(null, "No se encontraron recomendaciones similares :(");
+            } else {
+                JOptionPane.showMessageDialog(null, "Carreras recomendadas:\n" + recomendaciones.toString());
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al recomendar: " + e.getMessage());
+        }
     }
 }
