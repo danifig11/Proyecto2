@@ -1,5 +1,4 @@
 package com.example;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -11,7 +10,7 @@ public class InterfazGrafica extends JFrame {
         this.bd = bd;
 
         setTitle("My SoulMate - Recomendador de Carreras");
-        setSize(550, 400);
+        setSize(550, 430);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -33,9 +32,11 @@ public class InterfazGrafica extends JFrame {
         JTextField materias = new JTextField(15);
 
         JButton agregarUsuario = new JButton("Agregar Usuario");
+        JButton actualizarUsuario = new JButton("Actualizar Usuario");
+        JButton eliminarUsuario = new JButton("Eliminar Usuario");
         JButton recomendar = new JButton("Recomendar Carreras");
 
-        JButton[] botones = {agregarUsuario, recomendar};
+        JButton[] botones = {agregarUsuario, actualizarUsuario, eliminarUsuario, recomendar};
         for (JButton b : botones) {
             b.setBackground(Color.WHITE);
             b.setForeground(Color.BLACK);
@@ -79,17 +80,30 @@ public class InterfazGrafica extends JFrame {
         gbc.gridy = 4; gbc.gridx = 0; panel.add(etiquetas[3], gbc);
         gbc.gridx = 1; panel.add(materias, gbc);
 
-        gbc.gridy = 5; gbc.gridx = 0;
-        panel.add(agregarUsuario, gbc);
-        gbc.gridx = 1;
-        panel.add(recomendar, gbc);
+        gbc.gridy = 5; gbc.gridx = 0; panel.add(agregarUsuario, gbc);
+        gbc.gridx = 1; panel.add(actualizarUsuario, gbc);
+
+        gbc.gridy = 6; gbc.gridx = 0; panel.add(eliminarUsuario, gbc);
+        gbc.gridx = 1; panel.add(recomendar, gbc);
 
         add(panel);
 
         agregarUsuario.addActionListener(e -> {
             Usuario u = new Usuario(nombre.getText(), id.getText(), intereses.getText(), materias.getText());
             bd.insertarUsuario(u);
-            JOptionPane.showMessageDialog(this, "Usuario agregado correctamente :D");
+            JOptionPane.showMessageDialog(this, "Usuario agregado correctamente.");
+        });
+
+        actualizarUsuario.addActionListener(e -> {
+            Usuario u = new Usuario(nombre.getText(), id.getText(), intereses.getText(), materias.getText());
+            bd.actualizarUsuario(u);
+            JOptionPane.showMessageDialog(this, "Usuario actualizado correctamente.");
+        });
+
+        eliminarUsuario.addActionListener(e -> {
+            String idEliminar = id.getText();
+            bd.eliminarUsuario(idEliminar);
+            JOptionPane.showMessageDialog(this, "Usuario eliminado correctamente.");
         });
 
         recomendar.addActionListener(e -> {
