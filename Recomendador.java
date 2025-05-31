@@ -6,6 +6,17 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
 
+/*
+ * UNIVERSIDAD DEL VALLE DE GUATEMALA
+ * Departamento de Ciencia de la Computación
+ * Autor: Daniel Figueroa. Saul Castillo y Oliver Cifuentes
+ * Fecha: Mayo 2025
+ * 
+ * Clase Recomendador: Se encarga de buscar recomendaciones de carreras
+ * basadas en intereses y materias favoritas de un usuario, consultando
+ * datos almacenados en Neo4j.
+ */
+
 public class Recomendador {
     private BaseDeDatos bd;
 
