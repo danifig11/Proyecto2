@@ -3,7 +3,15 @@ package com.example;
 import org.neo4j.driver.Session;
 import org.neo4j.driver.Result;
 
-
+/*
+ * UNIVERSIDAD DEL VALLE DE GUATEMALA
+ * Departamento de Ciencia de la Computación
+ * Autor: Daniel Figueroa. Saul Castillo y Oliver Cifuentes
+ * Fecha: Mayo 2025
+ * 
+ * Clase Principal: Establece la conexión con Neo4j, ejecuta una prueba,
+ * inicializa la base de datos lógica y lanza la interfaz gráfica.
+ */
 
 public class Main {
     public static void main(String[] args) {
